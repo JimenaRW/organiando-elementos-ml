@@ -18,6 +18,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    height: max-content;
+    align-content: flex-start;
 }
 .home main section.product h2 {
     margin: 0;
@@ -29,8 +31,11 @@
     padding: 15px;
     background-color: white;
 }
-.home main section.product article.caja img {
-    width: 100%
+.home main section.product article.caja div.product-image {
+    margin: auto;
+}
+.home main section.product article.caja div.product-image img {
+    width: 100%;
 }
 
 /* caja hija */
@@ -38,24 +43,25 @@
     border-top: solid 1px #ebebeb;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 /* main - product - posicionamiento de camión */
-.home main section.product article.caja div.caja-hija div.camion {
-    height: 0;
+ .home main section.product article.caja div.caja-hija div.camion {
+    position: absolute;
+    top: -15px;
+    right: 4px;
+    width: 1.7rem;
+    height: 1.5rem;
+    border: 1px solid #39b54a;
+    background-color: #FFF;
+    border-radius: 50%;
+    
 }
 .home main section.product article.caja div.caja-hija div.camion i {
     display: block;
     font-size: 1rem;
     padding: 5px;
-    width: 21px;
-    height: 18px;
-    border: 1px solid #39b54a;
-    background-color: #FFF;
-    border-radius: 50%;
-    position: relative;
-    left: 90%;
-    top: -15px;
     color: var(--colorVerde);
 }
 
@@ -69,21 +75,30 @@
     width: 30%;
 }
 .home main section.product article.caja div.caja-hija div.detail-product div.price p {
-    font-size: var(--fontSize-price);
+    font-size: min(max(var(--fontSize-price)), 1rem, 2vw);
     color: black;
 }
+
 .home main section.product article.caja div.caja-hija div.detail-product div.discount {
     width: 70%;
+    text-align: end;
 }
 .home main section.product article.caja div.caja-hija div.detail-product div.discount p{
     color: var(--colorVerde);
     font-size: var(--fontSize-discount);
     padding-left: 10px; /* Sacar en media queris mayores a tablet */
 }
-.home main section.product article.caja div.caja-hija div.detail-product p{
+.home main section.product article.caja div.caja-hija div.detail-product p.description{
     font-size: var(--fontSize-detail);
 }
-
+@media (min-width: 425px) {
+    .home main section.product article.caja {
+        width: 100%;
+    }
+    .home main section.product article.caja div.product-image {
+        max-width:450px
+    }
+}
 /* media queris tablet */
 @media (min-width: 768px) {
     /* mian - banner */
@@ -92,28 +107,39 @@
     }
     /* tamaño de article - 2 */
     .home main section.product article.caja {
-        width: 40%;
         margin: 10px 10px;
-        box-shadow: 0 0 10px rgb(100, 100, 100);
+        width: 17.5%;
+        height: fit-content;
+        
     }
+    .home main section.product article.caja:hover {
+        box-shadow: 0 0 10px rgb(100, 100, 100);
+        position: relative;
+    }
+    .home main section.product article.caja div.product-image {
+        max-width:200px
+    }
+    
     .home main section.product article.caja div.caja-hija div.detail-product div.price,
     .home main section.product article.caja div.caja-hija div.detail-product div.discount {
         width: 50%;
     }
-    /* main - product - posicionamiento de camión */
-    .home main section.product article.caja div.caja-hija div.camion i {
-        left: 86%;
+    .home main section.product article.caja div.caja-hija div.detail-product div.discount p{
+        padding-left: 0; /* Sacar en media queris mayores a tablet */
     }
-}
+    .home main section.product article.caja div.caja-hija div.detail-product p.description{
+        display: none;
+    }
+    .home main section.product article.caja div.caja-hija div.detail-product:hover > p.description {
+        display: block;
+    }
+    
+    .home main section.product article.caja div.caja-hija div.camion i {
+        transition: linear transform .9s;
+    }
+      
+    .home main section.product article.caja div.caja-hija div.camion i:hover {
+        transform: rotate(180deg);
+    }
 
-/* media queris laptop */
-@media (min-width: 1024px){
-    /* tamaño de article - 4 */
-    .home main section.product article.caja {
-        width: 19.5%;
-    }
-    /* main - product - posicionamiento de camión */
-    .home main section.product article.caja div.caja-hija div.camion i {
-        left: 83%;
-    }
 }

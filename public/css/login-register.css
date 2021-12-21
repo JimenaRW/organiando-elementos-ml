@@ -67,7 +67,7 @@
 }
 
 .login-register form .button-form button:hover {
-    background-color: rgba(0, 0, 0, 0.767)
+    background-color: #0022AA;
 }
 
 @media (min-width: 320px) {

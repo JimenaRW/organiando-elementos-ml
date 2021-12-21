@@ -9,6 +9,9 @@ footer section {
     align-items: center;
     margin: 40px 0;
 }
+footer section:hover > .icon i{
+    color: var(--colorAzul)
+}
 
 footer section div.icon {
     color: var(--colorCeleste);
@@ -31,12 +34,6 @@ footer section span {
 }
 
 @media (min-width: 768px) {
-    footer section p {
-        width: 35%;
-    }
-}
-
-@media (min-width: 1024px) {
     footer {
         display: flex;
         flex-wrap: wrap;
